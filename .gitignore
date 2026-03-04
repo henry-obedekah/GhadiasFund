@@ -6,3 +6,6 @@ Thumbs.db
 lost+found
 .env
 *.env
+.idea/
+*.iml
+target/
