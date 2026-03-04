@@ -1,0 +1,52 @@
+services:
+  frontend:
+    container_name: frontend-dev
+    image: frontend-prod
+    build:
+      context: ./frontend
+    ports:
+      - 5172:5172
+    depends_on:
+      - api
+
+  api:
+    container_name: api-dev
+    image: api-prod
+    build: ./api
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    entrypoint: ["java", "-jar", "app.jar", "--spring.profiles.active=test"]
+
+  db:
+    image: postgres:latest
+    container_name: db-dev
+    environment:
+      POSTGRES_DB: projetdev
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pwd
+    ports:
+      - "5446:5432"
+
+  reverse-proxy:
+    container_name: reverse-proxy-dev
+    image: nginx:alpine
+    ports:
+      - 80:80
+    depends_on:
+      - frontend
+      - api
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  e2e:
+    container_name: e2e-dev
+    image: e2e-prod
+    build: ./e2e
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - api
+      - frontend
+    entrypoint: ["sh", "-c", "sleep 20 && npx playwright test"]

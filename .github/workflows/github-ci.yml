@@ -1,0 +1,128 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  MAVEN_OPTS: "-Dmaven.repo.local=${{ github.workspace }}/.m2/repository"
+
+jobs:
+  api-test:
+    name: API Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21 (Corretto) + Cache Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: corretto
+          java-version: '21'
+          cache: maven
+
+      - name: Run API tests
+        run: |
+          cd api
+          mvn -q -B clean test
+
+      - name: Upload API test reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-reports
+          path: |
+            api/target/reports/
+            api/target/site/
+            api/target/surefire-reports/
+
+  frontend-test:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install deps (CI)
+        working-directory: frontend
+        run: npm ci
+
+      - name: Lint
+        working-directory: frontend
+        run: npm run lint
+
+      - name: Unit tests + coverage
+        working-directory: frontend
+        run: |
+          # garde ta commande existante si tu as "coverage" dans package.json
+          npm run coverage
+
+      - name: Upload frontend coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: frontend/coverage/
+
+  e2e-tests:
+    if: false
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.53.1-jammy
+
+    env:
+      HOME: /root
+      DOCKER_CONFIG: /tmp/.docker
+
+    services:
+      docker:
+        image: docker:dind
+        options: --privileged
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup environment and apps
+        run: |
+          mkdir -p $DOCKER_CONFIG
+          apt update -y
+          wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+          apt install ./jdk-21_linux-x64_bin.deb
+          apt install -y maven docker-compose-v2
+          docker compose -f api/docker-compose.yaml up --build -d
+          sleep 5
+          cd api
+          mvn clean spring-boot:run -Dspring-boot.run.profiles=test > spring.log 2>&1 &
+          SERVER_PID=$!
+          sleep 30
+          if ! ps -p $SERVER_PID > /dev/null; then echo "Spring Boot failed to start"; cat spring.log; exit 1; fi
+          cd ../frontend
+          npm ci
+          npm run dev &
+          sleep 30
+          cd ../e2e
+          npm ci
+
+      - name: Run Playwright tests
+        run: |
+          cd e2e
+          npx playwright test
+
+      - name: Upload E2E reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-playwright-report
+          path: |
+            e2e/playwright-report/
+            e2e/test-results/
