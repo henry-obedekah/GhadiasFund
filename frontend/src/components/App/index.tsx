@@ -1,16 +1,16 @@
 // src/components/App/index.tsx
-import NavBar from '../Navbar';
-import Footer from '../Footer';
-import HomePage from '../pages/HomePage';
+import { Outlet } from 'react-router-dom';
+import { Navbar } from '../Navbar';
+import { SiteFooter } from '../Footer';
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <NavBar />
-      <main className="flex-1">
-        <HomePage />
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-navy via-deep-green to-navy font-dm-sans">
+      <Navbar />
+      <main className="flex-1 pt-20">
+        <Outlet />
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 };
