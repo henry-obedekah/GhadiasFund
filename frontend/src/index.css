@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -8,72 +9,57 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  /* Add these two lines here */
+  --font-dm-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-playfair-display: "Playfair Display", ui-serif, Georgia, serif;
+  
+  /* Also add your custom colors here so 'from-gold' etc. work correctly */
+  --color-deep-green: rgb(21 38 28);
+  --color-gold: rgb(201 156 76);
+  --color-navy: rgb(26 39 68);
+  --color-cream: rgb(247 244 239);
 }
 
 :root {
+  /* Design Tokens - GHADIAS Investment */
+  --color-deep-green: 21 38 28; /* #1a3a2a */
+  --color-gold: 201 156 76; /* #c9a84c */
+  --color-navy: 26 39 68; /* #1a2744 */
+  --color-cream: 247 244 239; /* #f7f4ef */
+
+  /* Legacy tokens for compatibility */
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --background: 100 0 100;
+  --foreground: 12.9 4.2 264.695;
+  --card: 100 0 100;
+  --card-foreground: 12.9 4.2 264.695;
+  --popover: 100 0 100;
+  --popover-foreground: 12.9 4.2 264.695;
+  --primary: 20.8 4.2 265.755;
+  --primary-foreground: 98.4 0.3 247.858;
+  --secondary: 96.8 0.7 247.896;
+  --secondary-foreground: 20.8 4.2 265.755;
+  --muted: 96.8 0.7 247.896;
+  --muted-foreground: 55.4 4.6 257.417;
+  --accent: 96.8 0.7 247.896;
+  --accent-foreground: 20.8 4.2 265.755;
+  --destructive: 57.7 24.5 27.325;
+  --border: 92.9 1.3 255.508;
+  --input: 92.9 1.3 255.508;
+  --ring: 70.4 4 256.788;
+  --chart-1: 64.6 22.2 41.116;
+  --chart-2: 60 11.8 184.704;
+  --chart-3: 39.8 7 227.392;
+  --chart-4: 82.8 18.9 84.429;
+  --chart-5: 76.9 18.8 70.08;
+  --sidebar: 98.4 0.3 247.858;
+  --sidebar-foreground: 12.9 4.2 264.695;
+  --sidebar-primary: 20.8 4.2 265.755;
+  --sidebar-primary-foreground: 98.4 0.3 247.858;
+  --sidebar-accent: 96.8 0.7 247.896;
+  --sidebar-accent-foreground: 20.8 4.2 265.755;
+  --sidebar-border: 92.9 1.3 255.508;
+  --sidebar-ring: 70.4 4 256.788;
 }
 
 .dark {
@@ -112,9 +98,43 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-[hsl(var(--border))] outline-[hsl(var(--ring))]/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] font-dm-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair-display;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold via-gold to-yellow-300 bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-navy {
+    @apply bg-gradient-to-br from-navy via-deep-green to-navy;
+  }
+
+  .bg-gradient-hero {
+    @apply bg-gradient-to-b from-navy/80 via-deep-green/70 to-navy/60;
+  }
+
+  .shadow-gold {
+    box-shadow: 0 10px 30px rgb(201 156 76 / 0.2);
+  }
+
+  .shadow-premium {
+    box-shadow: 0 20px 40px rgb(26 39 68 / 0.1);
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
 }

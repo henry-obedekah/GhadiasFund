@@ -31,7 +31,7 @@ const LoginPage = () => {
       <div className="container mx-auto px-4 flex justify-center">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle>Connectez un utilisateur</CardTitle>
+            <CardTitle>Login User</CardTitle>
           </CardHeader>
 
           <CardContent>
@@ -67,7 +67,7 @@ const LoginPage = () => {
               </div>
 
               <Button type="submit" className="w-full">
-                S'authentifier
+                Authenticate
               </Button>
             </form>
           </CardContent>
