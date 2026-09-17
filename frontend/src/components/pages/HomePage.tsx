@@ -290,12 +290,12 @@ const HomePage = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Impact Fund */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 flex flex-col h-full">
               <div className="bg-gradient-to-r from-gold to-yellow-300 p-6 text-navy">
                 <h3 className="text-2xl font-bold">Impact Fund</h3>
                 <p className="text-sm opacity-90">Direct investments</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex-grow">
                 <p className="text-cream/80 mb-4">
                   Invest directly in identified projects in Ghana with variable
                   returns based on project performance.
@@ -305,6 +305,8 @@ const HomePage = () => {
                   <li>✓ Financial returns</li>
                   <li>✓ Complete transparency</li>
                 </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
                 <Button
                   className="w-full bg-gradient-to-r from-gold to-yellow-300 hover:from-gold/90 hover:to-yellow-300/90 text-navy font-bold"
                   onClick={() => navigate('/sectors')}
@@ -315,12 +317,12 @@ const HomePage = () => {
             </div>
 
             {/* Growth Fund */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 flex flex-col h-full">
               <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 text-white">
                 <h3 className="text-2xl font-bold">Growth Fund</h3>
                 <p className="text-sm opacity-90">Flexible savings</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex-grow">
                 <p className="text-cream/80 mb-4">
                   Monthly or quarterly savings plans converted into professional
                   investment funds.
@@ -330,19 +332,24 @@ const HomePage = () => {
                   <li>✓ Professional management</li>
                   <li>✓ Diversification</li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-400/90 hover:to-blue-500/90 text-white font-bold">
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <Button
+                  className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-400/90 hover:to-blue-500/90 text-white font-bold"
+                  onClick={() => navigate('/contact')}
+                >
                   Create a Plan
                 </Button>
               </div>
             </div>
 
             {/* Fixed Income */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 flex flex-col h-full">
               <div className="bg-gradient-to-r from-green-400 to-green-500 p-6 text-white">
                 <h3 className="text-2xl font-bold">Fixed Income</h3>
                 <p className="text-sm opacity-90">Guaranteed income</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex-grow">
                 <p className="text-cream/80 mb-4">
                   Secure savings with guaranteed fixed interest rates for
                   conservative investors.
@@ -352,6 +359,8 @@ const HomePage = () => {
                   <li>✓ Maximum security</li>
                   <li>✓ Predictability</li>
                 </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
                 <Button
                   className="w-full bg-gradient-to-r from-green-400 to-green-500 hover:from-green-400/90 hover:to-green-500/90 text-white font-bold"
                   onClick={() => navigate('/products')}

@@ -96,14 +96,6 @@ export const SiteFooter = () => {
                   Sectors
                 </a>
               </li>
-              <li>
-                <a
-                  href="#governance"
-                  className="text-cream/70 hover:text-gold transition-colors"
-                >
-                  Governance
-                </a>
-              </li>
             </ul>
           </div>
 

@@ -1,7 +1,14 @@
 import { Users, Award, Globe, CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/button';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy via-deep-green to-navy">
       {/* Hero Section */}
@@ -96,113 +103,6 @@ const AboutPage = () => {
               <p className="text-cream/70">
                 Adherent to GDPR and AML/KYC standards
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Management Team */}
-      <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-cream">
-            Our Management Team
-          </h2>
-
-          {/* Board of Directors */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-cream">
-              Board of Directors
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  name: 'Kwesi Owusu',
-                  title: 'President & Founder',
-                  bio: '30+ years of experience in finance and investment in Africa',
-                },
-                {
-                  name: 'Ama Asante',
-                  title: 'Vice President',
-                  bio: 'Expert in economic development and investment policy',
-                },
-                {
-                  name: 'Dr. Kofi Mensah',
-                  title: 'Chief Financial Officer',
-                  bio: 'CPA with banking experience and investment fund management',
-                },
-              ].map((member) => (
-                <div
-                  key={member.name}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-gold/20"
-                >
-                  <h4 className="text-xl font-bold mb-1 text-cream">
-                    {member.name}
-                  </h4>
-                  <p className="text-gold font-semibold mb-3">{member.title}</p>
-                  <p className="text-cream/70">{member.bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Fund Managers */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-cream">
-              Distinguished Fund Managers
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  name: 'Samuel Boateng',
-                  title: 'Impact Fund Manager',
-                  bio: 'Specialist in impact investments and sustainable development',
-                },
-                {
-                  name: 'Abena Kofie',
-                  title: 'Growth Fund Manager',
-                  bio: 'Expert in portfolio management and investment strategies',
-                },
-              ].map((member) => (
-                <div
-                  key={member.name}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-gold/20"
-                >
-                  <h4 className="text-xl font-bold mb-1 text-cream">
-                    {member.name}
-                  </h4>
-                  <p className="text-gold font-semibold mb-3">{member.title}</p>
-                  <p className="text-cream/70">{member.bio}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Technical Advisors */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-cream">
-              Technical Advisors
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  name: 'Prof. Joseph Ansong',
-                  expertise: 'Economics & Sustainable Development',
-                },
-                {
-                  name: 'Adjoa Mensah',
-                  expertise: 'Compliance & Governance',
-                },
-              ].map((advisor) => (
-                <div
-                  key={advisor.name}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-gold/20"
-                >
-                  <h4 className="text-xl font-bold mb-1 text-cream">
-                    {advisor.name}
-                  </h4>
-                  <p className="text-gold font-semibold">{advisor.expertise}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -313,7 +213,10 @@ const AboutPage = () => {
           <p className="text-lg mb-8 text-cream/90">
             Contact our team to learn more about investment opportunities
           </p>
-          <Button className="bg-gradient-to-r from-gold to-yellow-300 hover:from-gold/90 hover:to-yellow-300/90 text-navy font-bold px-10 py-3 text-lg">
+          <Button
+            className="bg-gradient-to-r from-gold to-yellow-300 hover:from-gold/90 hover:to-yellow-300/90 text-navy font-bold px-10 py-3 text-lg"
+            onClick={() => navigate('/contact')}
+          >
             Schedule an Appointment
           </Button>
         </div>
