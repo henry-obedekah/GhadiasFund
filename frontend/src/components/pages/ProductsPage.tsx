@@ -8,9 +8,14 @@ import {
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const ProductsPage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy via-deep-green to-navy">
       {/* Hero Section */}
@@ -31,7 +36,7 @@ const ProductsPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Impact Fund */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 hover:shadow-gold transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 hover:shadow-gold transition-all duration-300 flex flex-col h-full">
               <div className="bg-gradient-to-r from-gold to-yellow-300 p-6 text-navy">
                 <div className="flex items-center gap-3 mb-3">
                   <Leaf size={32} />
@@ -39,7 +44,7 @@ const ProductsPage = () => {
                 </div>
                 <p className="text-sm font-medium">Direct investments</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex-grow">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="fill-gold text-gold" size={16} />
@@ -70,6 +75,8 @@ const ProductsPage = () => {
                     Minimum $5,000 investment
                   </li>
                 </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
                 <Button
                   className="w-full bg-gradient-to-r from-gold to-yellow-300 hover:from-gold/90 hover:to-yellow-300/90 text-navy font-bold"
                   onClick={() => navigate('/sectors')}
@@ -80,7 +87,7 @@ const ProductsPage = () => {
             </div>
 
             {/* Growth Fund */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 hover:shadow-gold transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 hover:shadow-gold transition-all duration-300 flex flex-col h-full">
               <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 text-white">
                 <div className="flex items-center gap-3 mb-3">
                   <TrendingUp size={32} />
@@ -88,7 +95,7 @@ const ProductsPage = () => {
                 </div>
                 <p className="text-sm font-medium">Flexible savings</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex-grow">
                 <p className="text-cream/80 mb-6 leading-relaxed">
                   Monthly or quarterly savings plans converted into professional
                   investment funds.
@@ -111,14 +118,19 @@ const ProductsPage = () => {
                     Minimum $1,000 investment
                   </li>
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-400/90 hover:to-blue-500/90 text-white font-bold">
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <Button
+                  className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-400/90 hover:to-blue-500/90 text-white font-bold"
+                  onClick={() => navigate('/contact')}
+                >
                   Create a Plan
                 </Button>
               </div>
             </div>
 
             {/* Fixed Income */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 hover:shadow-gold transition-all duration-300">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 hover:shadow-gold transition-all duration-300 flex flex-col h-full">
               <div className="bg-gradient-to-r from-green-400 to-green-500 p-6 text-white">
                 <div className="flex items-center gap-3 mb-3">
                   <Shield size={32} />
@@ -126,7 +138,7 @@ const ProductsPage = () => {
                 </div>
                 <p className="text-sm font-medium">Guaranteed income</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex-grow">
                 <p className="text-cream/80 mb-6 leading-relaxed">
                   Secure savings with guaranteed fixed interest rates for
                   conservative investors.
@@ -149,6 +161,8 @@ const ProductsPage = () => {
                     Minimum $500 investment
                   </li>
                 </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
                 <Button
                   className="w-full bg-gradient-to-r from-green-400 to-green-500 hover:from-green-400/90 hover:to-green-500/90 text-white font-bold"
                   onClick={() => navigate('/contact')}

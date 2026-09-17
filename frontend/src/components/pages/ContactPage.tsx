@@ -4,11 +4,11 @@ import {
   Phone,
   Mail,
   Globe,
-  Download,
-  Calendar,
   CheckCircle2,
   ChevronDown,
 } from 'lucide-react';
+import { CountrySearch } from '../CountrySearch';
+import { PhoneCountry } from '../../services/countryService';
 
 const faqs = [
   {
@@ -47,6 +47,7 @@ export function ContactPage() {
     lastName: '',
     email: '',
     phone: '',
+    phoneCountry: '',
     country: '',
     product: '',
     amount: '',
@@ -60,6 +61,10 @@ export function ContactPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleCountryChange = (country: PhoneCountry) => {
+    setForm({ ...form, country: country.name });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,56 +91,6 @@ export function ContactPage() {
             Register your investment interest, request the investor pack, or
             schedule a consultation with our team.
           </p>
-        </div>
-      </section>
-
-      {/* Action Cards */}
-      <section className="py-12 px-4 bg-cream/10 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-          {[
-            {
-              icon: CheckCircle2,
-              title: 'Become a Shareholder',
-              desc: 'Register your investment interest and take the first step to ownership.',
-              btn: 'Register Below',
-              color: 'from-navy to-deep-green',
-            },
-            {
-              icon: Download,
-              title: 'Request Investor Pack',
-              desc: 'Receive our comprehensive investment prospectus and product brochures.',
-              btn: 'Request Pack',
-              color: 'from-gold to-yellow-300',
-            },
-            {
-              icon: Calendar,
-              title: 'Schedule Consultation',
-              desc: 'Book a one-on-one session with one of our investment advisors.',
-              btn: 'Book a Call',
-              color: 'from-blue-400 to-blue-500',
-            },
-          ].map(({ icon: Icon, title, desc, btn, color }) => (
-            <div
-              key={title}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-7 border border-gold/20 text-center hover:bg-white/20 transition-all"
-            >
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-gradient-to-br text-white">
-                <Icon size={24} />
-              </div>
-              <h3
-                className="text-cream mb-2 font-playfair-display font-bold"
-                style={{ fontSize: '1.05rem' }}
-              >
-                {title}
-              </h3>
-              <p className="text-cream/60 text-sm mb-4">{desc}</p>
-              <button
-                className={`w-full py-2.5 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 bg-gradient-to-r ${color}`}
-              >
-                {btn}
-              </button>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -239,7 +194,7 @@ export function ContactPage() {
                       onChange={(e) =>
                         setForm({ ...form, phone: e.target.value })
                       }
-                      placeholder="+44 7700 000000"
+                      placeholder="Enter phone number"
                     />
                   </div>
                 </div>
@@ -248,34 +203,12 @@ export function ContactPage() {
                     <label className="block text-cream text-xs font-semibold mb-1.5 uppercase tracking-wide">
                       Country of Residence *
                     </label>
-                    <select
-                      required
-                      className="w-full px-4 py-3 bg-white/10 border border-gold/20 rounded-lg text-sm text-cream focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold backdrop-blur-sm"
+                    <CountrySearch
                       value={form.country}
-                      onChange={(e) =>
-                        setForm({ ...form, country: e.target.value })
-                      }
-                    >
-                      <option value="" className="text-navy">
-                        Select country
-                      </option>
-                      {[
-                        'Ghana',
-                        'United Kingdom',
-                        'United States',
-                        'Canada',
-                        'Germany',
-                        'Netherlands',
-                        'France',
-                        'Australia',
-                        'Other EU',
-                        'Other',
-                      ].map((c) => (
-                        <option key={c} value={c} className="text-navy">
-                          {c}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={handleCountryChange}
+                      placeholder="Search your country..."
+                      className="w-full"
+                    />
                   </div>
                   <div>
                     <label className="block text-cream text-xs font-semibold mb-1.5 uppercase tracking-wide">
@@ -283,7 +216,7 @@ export function ContactPage() {
                     </label>
                     <select
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-gold/20 rounded-lg text-sm text-cream focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold backdrop-blur-sm"
+                      className="w-full h-12 px-4 py-3 bg-white/10 border border-gold/20 rounded-lg text-sm text-cream focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold backdrop-blur-sm"
                       value={form.product}
                       onChange={(e) =>
                         setForm({ ...form, product: e.target.value })
@@ -308,7 +241,7 @@ export function ContactPage() {
                     Investment Amount Range
                   </label>
                   <select
-                    className="w-full px-4 py-3 bg-white/10 border border-gold/20 rounded-lg text-sm text-cream focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold backdrop-blur-sm"
+                    className="w-full h-12 px-4 py-3 bg-white/10 border border-gold/20 rounded-lg text-sm text-cream focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold backdrop-blur-sm"
                     value={form.amount}
                     onChange={(e) =>
                       setForm({ ...form, amount: e.target.value })
@@ -317,12 +250,24 @@ export function ContactPage() {
                     <option value="" className="text-navy">
                       Select range
                     </option>
-                    <option className="text-navy">Under $5,000</option>
-                    <option className="text-navy">$5,000 – $25,000</option>
-                    <option className="text-navy">$25,000 – $100,000</option>
-                    <option className="text-navy">$100,000 – $500,000</option>
-                    <option className="text-navy">$500,000+</option>
-                    <option className="text-navy">Prefer not to say</option>
+                    <option value="under-1k" className="text-navy">
+                      Under $1,000
+                    </option>
+                    <option value="1k-5k" className="text-navy">
+                      $1,000 – $5,000
+                    </option>
+                    <option value="5k-10k" className="text-navy">
+                      $5,000 – $10,000
+                    </option>
+                    <option value="10k-25k" className="text-navy">
+                      $10,000 – $25,000
+                    </option>
+                    <option value="25k+" className="text-navy">
+                      $25,000+
+                    </option>
+                    <option value="prefer-not" className="text-navy">
+                      Prefer not to say
+                    </option>
                   </select>
                 </div>
                 <div>
@@ -436,7 +381,10 @@ export function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-4 bg-cream/5 backdrop-blur-sm" id="faq">
+      <section
+        className="py-20 px-4 bg-gradient-to-r from-navy/50 to-deep-green/50 backdrop-blur-sm"
+        id="faq"
+      >
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-gold text-xs font-semibold tracking-widest uppercase">

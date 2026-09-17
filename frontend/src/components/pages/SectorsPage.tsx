@@ -14,8 +14,10 @@ import {
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SectorsPage = () => {
+  const navigate = useNavigate();
   const [selectedSector, setSelectedSector] = useState(0);
 
   useEffect(() => {
@@ -26,7 +28,8 @@ const SectorsPage = () => {
     {
       name: 'Renewable Energy',
       icon: Zap,
-      color: 'from-yellow-400 to-orange-500',
+      color: 'from-yellow-600/80 to-orange-700/80',
+      hoverColor: 'from-yellow-600 to-orange-700',
       description: 'Solar, hydro and wind energy projects in Ghana',
       details:
         "Invest in sustainable energy sources for Ghana's growing needs.",
@@ -37,7 +40,8 @@ const SectorsPage = () => {
     {
       name: 'Fintech',
       icon: Smartphone,
-      color: 'from-blue-400 to-blue-600',
+      color: 'from-blue-600/80 to-blue-800/80',
+      hoverColor: 'from-blue-600 to-blue-800',
       description:
         'Digital payment platforms and innovative financial services',
       details:
@@ -49,7 +53,8 @@ const SectorsPage = () => {
     {
       name: 'Real Estate',
       icon: Building2,
-      color: 'from-red-400 to-pink-500',
+      color: 'from-red-600/80 to-pink-700/80',
+      hoverColor: 'from-red-600 to-pink-700',
       description: 'Quality residential and commercial projects',
       details:
         'Contribute to sustainable urban growth in Ghana with quality projects.',
@@ -60,7 +65,8 @@ const SectorsPage = () => {
     {
       name: 'Agribusiness',
       icon: Leaf,
-      color: 'from-green-400 to-green-600',
+      color: 'from-green-600/80 to-green-800/80',
+      hoverColor: 'from-green-600 to-green-800',
       description: 'Modern agriculture and food processing',
       details:
         'Modernize the Ghanaian agricultural sector and create added value.',
@@ -71,7 +77,8 @@ const SectorsPage = () => {
     {
       name: 'Logistics',
       icon: Truck,
-      color: 'from-purple-400 to-purple-600',
+      color: 'from-purple-600/80 to-purple-800/80',
+      hoverColor: 'from-purple-600 to-purple-800',
       description: 'Infrastructure and transportation services',
       details: "Improve Ghana's supply chain and logistics.",
       projects: ['Tema Port Logistics Hub', 'Distribution Network'],
@@ -81,7 +88,8 @@ const SectorsPage = () => {
     {
       name: 'Healthcare',
       icon: Heart,
-      color: 'from-red-400 to-red-600',
+      color: 'from-red-700/80 to-red-900/80',
+      hoverColor: 'from-red-700 to-red-900',
       description: 'Hospitals, clinics and pharmaceutical services',
       details: 'Improve access to quality healthcare services in Ghana.',
       projects: ['Accra Multispecialty Clinic', 'Pharmaceutical Plant'],
@@ -91,7 +99,8 @@ const SectorsPage = () => {
     {
       name: 'Oil & Gas',
       icon: Droplet,
-      color: 'from-gray-600 to-gray-800',
+      color: 'from-gray-600/80 to-gray-800/80',
+      hoverColor: 'from-gray-600 to-gray-800',
       description: 'Upstream and downstream petroleum activities',
       details:
         "Capitalize on Ghana's petroleum resources in a sustainable way.",
@@ -102,7 +111,8 @@ const SectorsPage = () => {
     {
       name: 'Tech Startups',
       icon: Lightbulb,
-      color: 'from-cyan-400 to-blue-500',
+      color: 'from-cyan-600/80 to-blue-700/80',
+      hoverColor: 'from-cyan-600 to-blue-700',
       description: 'Innovative technology companies',
       details: "Support Ghana's growing innovation ecosystem.",
       projects: ['EdTech Startup', 'App Marketplace'],
@@ -112,7 +122,8 @@ const SectorsPage = () => {
     {
       name: 'SME Financing',
       icon: Briefcase,
-      color: 'from-green-500 to-teal-600',
+      color: 'from-green-700/80 to-teal-800/80',
+      hoverColor: 'from-green-700 to-teal-800',
       description: 'Support for small and medium enterprises',
       details: 'Finance Ghanaian SMEs for their growth and development.',
       projects: ['SME Guarantee Fund', 'Acceleration Program'],
@@ -122,7 +133,8 @@ const SectorsPage = () => {
     {
       name: 'Education',
       icon: BookOpen,
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-700/80 to-indigo-800/80',
+      hoverColor: 'from-blue-700 to-indigo-800',
       description: 'Educational institutions and services',
       details: "Invest in quality education for Ghana's next generation.",
       projects: ['Technology Campus', 'E-Learning Platform'],
@@ -132,7 +144,8 @@ const SectorsPage = () => {
     {
       name: 'Commodities Trading',
       icon: Boxes,
-      color: 'from-orange-500 to-red-600',
+      color: 'from-orange-600/80 to-red-700/80',
+      hoverColor: 'from-orange-600 to-red-700',
       description: 'Trading and monetary instruments',
       details: 'Opportunities in Ghanaian and African commodity markets.',
       projects: ['Exchange Platform', 'Processing Center'],
@@ -142,12 +155,13 @@ const SectorsPage = () => {
     {
       name: 'Infrastructure',
       icon: Landmark,
-      color: 'from-gray-700 to-gray-900',
+      color: 'from-gray-700/80 to-gray-900/80',
+      hoverColor: 'from-gray-700 to-gray-900',
       description: 'Roads, bridges and basic infrastructure',
       details: 'Develop critical infrastructure for economic growth.',
       projects: ['Accra-Kumasi Highway', 'Strategic Bridge'],
       expectedReturns: '9-13%',
-      impact: '50,000+ people positively affected',
+      impact: 'National connectivity improved',
     },
   ];
 
@@ -178,10 +192,10 @@ const SectorsPage = () => {
                 <button
                   key={index}
                   onClick={() => setSelectedSector(index)}
-                  className={`p-4 rounded-lg transition transform hover:scale-105 ${
+                  className={`p-4 rounded-lg transition-all duration-300 transform hover:scale-105 ${
                     selectedSector === index
                       ? `bg-gradient-to-br ${sector.color} text-white shadow-lg`
-                      : 'bg-gray-50 border border-gray-200 hover:border-gray-300 text-gray-800'
+                      : `bg-gradient-to-br ${sector.color} text-white hover:shadow-lg hover:scale-105 border-0`
                   }`}
                 >
                   <IconComponent className="mx-auto mb-2" size={28} />
@@ -233,10 +247,6 @@ const SectorsPage = () => {
                       </div>
                     ))}
                   </div>
-
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white mb-4">
-                    View All Projects
-                  </Button>
                 </div>
 
                 <div className="space-y-6">
@@ -291,7 +301,10 @@ const SectorsPage = () => {
                     </ul>
                   </div>
 
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={() => navigate('/contact')}
+                  >
                     Invest in this Sector
                   </Button>
                 </div>
