@@ -3,12 +3,13 @@ import {
   MapPin,
   Phone,
   Mail,
-  Globe,
   Download,
   Calendar,
   CheckCircle2,
   ChevronDown,
 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { emailjsConfig } from '../../config/emailjs';
 
 const faqs = [
   {
@@ -48,6 +49,7 @@ export function ContactPage() {
     email: '',
     phone: '',
     country: '',
+    otherCountry: '',
     product: '',
     amount: '',
     message: '',
@@ -61,9 +63,32 @@ export function ContactPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    try {
+      const templateParams = {
+        from_name: `${form.firstName} ${form.lastName}`,
+        from_email: form.email,
+        phone: form.phone,
+        country: form.country === 'Other' ? form.otherCountry : form.country,
+        product: form.product,
+        amount: form.amount,
+        message: form.message,
+        to_name: 'GHADIAS Team',
+      };
+
+      await emailjs.send(
+        emailjsConfig.SERVICE_ID,
+        emailjsConfig.TEMPLATE_ID,
+        templateParams,
+        emailjsConfig.PUBLIC_KEY
+      );
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('There was an error sending your enquiry. Please try again or contact us directly.');
+    }
   };
 
   return (
@@ -303,6 +328,23 @@ export function ContactPage() {
                     </select>
                   </div>
                 </div>
+                {form.country === 'Other' && (
+                  <div>
+                    <label className="block text-cream text-xs font-semibold mb-1.5 uppercase tracking-wide">
+                      Please specify your country *
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      className="w-full px-4 py-3 bg-white/10 border border-gold/20 rounded-lg text-sm text-cream placeholder-cream/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold backdrop-blur-sm"
+                      value={form.otherCountry}
+                      onChange={(e) =>
+                        setForm({ ...form, otherCountry: e.target.value })
+                      }
+                      placeholder="Enter your country name"
+                    />
+                  </div>
+                )}
                 <div>
                   <label className="block text-cream text-xs font-semibold mb-1.5 uppercase tracking-wide">
                     Investment Amount Range
@@ -317,17 +359,16 @@ export function ContactPage() {
                     <option value="" className="text-navy">
                       Select range
                     </option>
-                    <option className="text-navy">Under $5,000</option>
-                    <option className="text-navy">$5,000 – $25,000</option>
-                    <option className="text-navy">$25,000 – $100,000</option>
-                    <option className="text-navy">$100,000 – $500,000</option>
-                    <option className="text-navy">$500,000+</option>
+                    <option className="text-navy">$1,000 (Standard Pioneer)</option>
+                    <option className="text-navy">$2,500 (Enhanced Pioneer)</option>
+                    <option className="text-navy">$5,000 (Premium Pioneer)</option>
+                    <option className="text-navy">$10,000 (Elite Pioneer)</option>
                     <option className="text-navy">Prefer not to say</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-cream text-xs font-semibold mb-1.5 uppercase tracking-wide">
-                    Your Message / Questions
+                    Your Message / Questions 
                   </label>
                   <textarea
                     rows={4}
@@ -396,7 +437,6 @@ export function ContactPage() {
                   },
                   { icon: Phone, label: 'Phone', val: '+233 (0) 200 000 000' },
                   { icon: Mail, label: 'Email', val: 'invest@ghadias.com' },
-                  { icon: Globe, label: 'Website', val: 'www.ghadias.com' },
                 ].map(({ icon: Icon, label, val }) => (
                   <div key={label} className="flex gap-3">
                     <div className="w-9 h-9 rounded-lg bg-gold/20 flex items-center justify-center shrink-0">
@@ -411,25 +451,6 @@ export function ContactPage() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-7 border border-gold/20">
-              <h3
-                className="text-cream mb-4 font-playfair-display font-bold"
-                style={{ fontSize: '1.1rem' }}
-              >
-                Investor Login Portal
-              </h3>
-              <p className="text-cream/60 text-sm mb-5">
-                Existing investors can access their portfolio, reports, and
-                account documents through our secure portal.
-              </p>
-              <button className="w-full border-2 border-gold text-gold hover:bg-gold hover:text-navy py-3 rounded-lg text-sm font-semibold transition-all">
-                Investor Portal Login
-              </button>
-              <p className="text-cream/40 text-xs mt-2 text-center">
-                Secure SSL-encrypted access
-              </p>
             </div>
           </div>
         </div>

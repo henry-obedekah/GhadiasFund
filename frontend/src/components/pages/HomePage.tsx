@@ -6,17 +6,10 @@ import {
   Shield,
   Users,
   Leaf,
-  Zap,
   Smartphone,
   Building2,
-  Truck,
-  Heart,
-  Droplet,
-  Lightbulb,
-  Briefcase,
-  BookOpen,
-  Boxes,
-  Landmark,
+  Factory,
+  Star,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import ghanaImage from '../../assets/images/Ghana.jpeg';
@@ -85,16 +78,6 @@ const HomePage = () => {
 
   const sectors = [
     {
-      icon: Zap,
-      name: 'Renewable Energy',
-      color: 'from-yellow-400 to-orange-500',
-    },
-    {
-      icon: Smartphone,
-      name: 'Fintech',
-      color: 'from-blue-400 to-blue-600',
-    },
-    {
       icon: Building2,
       name: 'Real Estate',
       color: 'from-red-400 to-pink-500',
@@ -105,44 +88,14 @@ const HomePage = () => {
       color: 'from-green-400 to-green-600',
     },
     {
-      icon: Truck,
-      name: 'Logistics',
-      color: 'from-purple-400 to-purple-600',
+      icon: Factory,
+      name: 'Manufacturing',
+      color: 'from-orange-400 to-red-500',
     },
     {
-      icon: Heart,
-      name: 'Healthcare',
-      color: 'from-red-400 to-red-600',
-    },
-    {
-      icon: Droplet,
-      name: 'Oil & Gas',
-      color: 'from-gray-600 to-gray-800',
-    },
-    {
-      icon: Lightbulb,
-      name: 'Tech Startups',
-      color: 'from-cyan-400 to-blue-500',
-    },
-    {
-      icon: Briefcase,
-      name: 'SME Financing',
-      color: 'from-green-500 to-teal-600',
-    },
-    {
-      icon: BookOpen,
-      name: 'Education',
-      color: 'from-blue-500 to-indigo-600',
-    },
-    {
-      icon: Boxes,
-      name: 'Commodities Trading',
-      color: 'from-orange-500 to-red-600',
-    },
-    {
-      icon: Landmark,
-      name: 'Infrastructure',
-      color: 'from-gray-700 to-gray-900',
+      icon: Smartphone,
+      name: 'Fintech',
+      color: 'from-blue-400 to-blue-600',
     },
   ];
 
@@ -172,9 +125,9 @@ const HomePage = () => {
           <div className="flex gap-6 justify-center flex-wrap">
             <Button
               className="bg-gradient-to-r from-gold to-yellow-300 hover:from-gold/90 hover:to-yellow-300/90 text-navy font-bold px-8 py-3"
-              onClick={() => navigate('/products')}
+              onClick={() => navigate('/onboarding')}
             >
-              Start Investing <ArrowRight className="ml-2" size={20} />
+              Join First 100 <ArrowRight className="ml-2" size={20} />
             </Button>
             <Button
               variant="outline"
@@ -389,6 +342,42 @@ const HomePage = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* First 100 Announcement */}
+      <section className="py-16 px-4 bg-gradient-to-r from-gold/10 to-yellow-300/10 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-gold/30 text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Star className="w-8 h-8 text-gold" />
+              <h2 className="text-3xl font-bold text-gold">Join the First 100 Pioneer Investors!</h2>
+            </div>
+            <p className="text-lg mb-6 text-cream/90 max-w-3xl mx-auto">
+              Ghadias is officially registered in Ghana 🇬🇭 and we're now accepting applications for our first 100 pioneer investors. 
+              Be part of the journey from the beginning with special founding member benefits.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white/5 rounded-lg p-4">
+                <div className="text-3xl font-bold text-gold mb-2">100</div>
+                <p className="text-cream/80 text-sm">Pioneer Slots Available</p>
+              </div>
+              <div className="bg-white/5 rounded-lg p-4">
+                <div className="text-3xl font-bold text-gold mb-2">$1,000</div>
+                <p className="text-cream/80 text-sm">Starting Investment</p>
+              </div>
+              <div className="bg-white/5 rounded-lg p-4">
+                <div className="text-3xl font-bold text-gold mb-2">8-15%</div>
+                <p className="text-cream/80 text-sm">Expected Annual Returns</p>
+              </div>
+            </div>
+            <Button
+              className="bg-gradient-to-r from-gold to-yellow-300 hover:from-gold/90 hover:to-yellow-300/90 text-navy font-bold px-10 py-3 text-lg"
+              onClick={() => navigate('/onboarding')}
+            >
+              Apply Now <ArrowRight className="ml-2" size={20} />
+            </Button>
           </div>
         </div>
       </section>

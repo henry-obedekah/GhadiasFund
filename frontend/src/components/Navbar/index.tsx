@@ -4,6 +4,12 @@ import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '../ui/button';
 
+type NavItem = {
+  label: string;
+  path: string;
+  highlight?: boolean;
+};
+
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
@@ -18,13 +24,13 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
     { label: 'Products', path: '/products' },
     { label: 'Sectors', path: '/sectors' },
-    { label: 'Governance', path: '/governance' },
     { label: 'Contact', path: '/contact' },
+    { label: 'Join First 100', path: '/onboarding', highlight: true },
   ];
 
   const handleNavClick = (path: string) => {
@@ -67,7 +73,11 @@ const Navbar: React.FC = () => {
               key={item.path}
               onClick={() => handleNavClick(item.path)}
               className={`transition-colors font-dm-sans font-medium text-sm ${
-                isActive(item.path) ? 'text-gold' : 'text-cream hover:text-gold'
+                item.highlight
+                  ? 'bg-gradient-to-r from-gold to-yellow-300 text-navy px-4 py-2 rounded-lg font-bold hover:from-gold/90 hover:to-yellow-300/90'
+                  : isActive(item.path)
+                  ? 'text-gold'
+                  : 'text-cream hover:text-gold'
               }`}
             >
               {item.label}
@@ -100,7 +110,9 @@ const Navbar: React.FC = () => {
               key={item.path}
               onClick={() => handleNavClick(item.path)}
               className={`block w-full text-left px-4 py-3 rounded-lg transition-colors font-dm-sans ${
-                isActive(item.path)
+                item.highlight
+                  ? 'bg-gradient-to-r from-gold to-yellow-300 text-navy font-bold'
+                  : isActive(item.path)
                   ? 'text-gold bg-gold/10'
                   : 'text-cream hover:text-gold hover:bg-gold/10'
               }`}

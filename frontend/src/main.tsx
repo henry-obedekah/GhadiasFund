@@ -8,9 +8,9 @@ import HomePage from './components/pages/HomePage';
 import AboutPage from './components/pages/AboutPage';
 import ProductsPage from './components/pages/ProductsPage';
 import SectorsPage from './components/pages/SectorsPage';
-import GovernancePage from './components/pages/GovernancePage';
 import ContactPage from './components/pages/ContactPage';
 import LoginPage from './components/pages/LoginPage';
+import OnboardingPage from './components/pages/OnboardingPage';
 import { UserContextProvider } from './contexts/UserContext';
 
 const router = createBrowserRouter([
@@ -22,9 +22,9 @@ const router = createBrowserRouter([
       { path: 'about', element: <AboutPage /> },
       { path: 'products', element: <ProductsPage /> },
       { path: 'sectors', element: <SectorsPage /> },
-      { path: 'governance', element: <GovernancePage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: 'login', element: <LoginPage /> },
+      { path: 'onboarding', element: <OnboardingPage /> },
     ],
   },
 ]);

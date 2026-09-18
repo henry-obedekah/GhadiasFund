@@ -1,16 +1,8 @@
 import {
-  Zap,
   Smartphone,
   Building2,
   Leaf,
-  Truck,
-  Heart,
-  Droplet,
-  Lightbulb,
-  Briefcase,
-  BookOpen,
-  Boxes,
-  Landmark,
+  Factory,
 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useState, useEffect } from 'react';
@@ -23,29 +15,6 @@ const SectorsPage = () => {
   }, []);
 
   const sectors = [
-    {
-      name: 'Renewable Energy',
-      icon: Zap,
-      color: 'from-yellow-400 to-orange-500',
-      description: 'Solar, hydro and wind energy projects in Ghana',
-      details:
-        "Invest in sustainable energy sources for Ghana's growing needs.",
-      projects: ['Accra Solar Power Plant', 'Tema Wind Park'],
-      expectedReturns: '14-18%',
-      impact: '50,000+ households electrified',
-    },
-    {
-      name: 'Fintech',
-      icon: Smartphone,
-      color: 'from-blue-400 to-blue-600',
-      description:
-        'Digital payment platforms and innovative financial services',
-      details:
-        'Revolutionize access to financial services in Ghana through technology.',
-      projects: ['Mobile Money Plus', 'Trading Platform'],
-      expectedReturns: '18-22%',
-      impact: '100,000+ active users',
-    },
     {
       name: 'Real Estate',
       icon: Building2,
@@ -69,85 +38,27 @@ const SectorsPage = () => {
       impact: '5,000+ farmers involved',
     },
     {
-      name: 'Logistics',
-      icon: Truck,
-      color: 'from-purple-400 to-purple-600',
-      description: 'Infrastructure and transportation services',
-      details: "Improve Ghana's supply chain and logistics.",
-      projects: ['Tema Port Logistics Hub', 'Distribution Network'],
-      expectedReturns: '11-15%',
-      impact: '2,000+ jobs created',
-    },
-    {
-      name: 'Healthcare',
-      icon: Heart,
-      color: 'from-red-400 to-red-600',
-      description: 'Hospitals, clinics and pharmaceutical services',
-      details: 'Improve access to quality healthcare services in Ghana.',
-      projects: ['Accra Multispecialty Clinic', 'Pharmaceutical Plant'],
-      expectedReturns: '13-17%',
-      impact: '100,000+ patients served',
-    },
-    {
-      name: 'Oil & Gas',
-      icon: Droplet,
-      color: 'from-gray-600 to-gray-800',
-      description: 'Upstream and downstream petroleum activities',
+      name: 'Manufacturing',
+      icon: Factory,
+      color: 'from-orange-400 to-red-500',
+      description: 'Industrial production and value-added manufacturing',
       details:
-        "Capitalize on Ghana's petroleum resources in a sustainable way.",
-      projects: ['Coastal Refinery', 'Offshore Services'],
-      expectedReturns: '16-20%',
-      impact: '3,000+ skilled jobs',
+        'Support Ghana\'s industrialization through modern manufacturing facilities.',
+      projects: ['Textile Factory', 'Food Processing Plant'],
+      expectedReturns: '14-18%',
+      impact: '3,000+ jobs created',
     },
     {
-      name: 'Tech Startups',
-      icon: Lightbulb,
-      color: 'from-cyan-400 to-blue-500',
-      description: 'Innovative technology companies',
-      details: "Support Ghana's growing innovation ecosystem.",
-      projects: ['EdTech Startup', 'App Marketplace'],
-      expectedReturns: '20-25%',
-      impact: '10,000+ users',
-    },
-    {
-      name: 'SME Financing',
-      icon: Briefcase,
-      color: 'from-green-500 to-teal-600',
-      description: 'Support for small and medium enterprises',
-      details: 'Finance Ghanaian SMEs for their growth and development.',
-      projects: ['SME Guarantee Fund', 'Acceleration Program'],
-      expectedReturns: '12-16%',
-      impact: '1,000+ SMEs financed',
-    },
-    {
-      name: 'Education',
-      icon: BookOpen,
-      color: 'from-blue-500 to-indigo-600',
-      description: 'Educational institutions and services',
-      details: "Invest in quality education for Ghana's next generation.",
-      projects: ['Technology Campus', 'E-Learning Platform'],
-      expectedReturns: '10-14%',
-      impact: '5,000+ students benefiting',
-    },
-    {
-      name: 'Commodities Trading',
-      icon: Boxes,
-      color: 'from-orange-500 to-red-600',
-      description: 'Trading and monetary instruments',
-      details: 'Opportunities in Ghanaian and African commodity markets.',
-      projects: ['Exchange Platform', 'Processing Center'],
-      expectedReturns: '8-12%',
-      impact: 'Regional economic stability',
-    },
-    {
-      name: 'Infrastructure',
-      icon: Landmark,
-      color: 'from-gray-700 to-gray-900',
-      description: 'Roads, bridges and basic infrastructure',
-      details: 'Develop critical infrastructure for economic growth.',
-      projects: ['Accra-Kumasi Highway', 'Strategic Bridge'],
-      expectedReturns: '9-13%',
-      impact: '50,000+ people positively affected',
+      name: 'Fintech',
+      icon: Smartphone,
+      color: 'from-blue-400 to-blue-600',
+      description:
+        'Digital payment platforms and innovative financial services',
+      details:
+        'Revolutionize access to financial services in Ghana through technology.',
+      projects: ['Mobile Money Plus', 'Trading Platform'],
+      expectedReturns: '18-22%',
+      impact: '100,000+ active users',
     },
   ];
 
@@ -162,7 +73,7 @@ const SectorsPage = () => {
             Investment Sectors
           </h1>
           <p className="text-xl opacity-90">
-            12 key sectors of Ghana offering high-impact investment
+            4 key sectors of Ghana offering high-impact investment
             opportunities
           </p>
         </div>
