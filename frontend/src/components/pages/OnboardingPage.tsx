@@ -97,7 +97,7 @@ const OnboardingPage = () => {
             <h1 className="text-4xl font-bold text-gold">GHADIAS – JOIN THE FIRST 100!</h1>
           </div>
           <p className="text-xl text-cream/90 max-w-3xl mx-auto">
-            We're excited to announce that Ghadias is officially registered in Ghana 🇬🇭 
+            We're excited to announce that Ghadias is officially registered in Ghana 
             and we are now at the onboarding stage.
           </p>
         </div>

@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Button } from '../ui/button';
 
 type NavItem = {
   label: string;
@@ -28,9 +27,7 @@ const Navbar: React.FC = () => {
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
     { label: 'Products', path: '/products' },
-    { label: 'Sectors', path: '/sectors' },
-    { label: 'Contact', path: '/contact' },
-    { label: 'Join First 100', path: '/onboarding', highlight: true },
+    { label: 'Invest', path: '/invest', highlight: true },
   ];
 
   const handleNavClick = (path: string) => {
@@ -83,14 +80,6 @@ const Navbar: React.FC = () => {
               {item.label}
             </button>
           ))}
-          <div className="w-px h-6 bg-cream/20 mx-2"></div>
-          <Button
-            variant="hero"
-            size="sm"
-            onClick={() => handleNavClick('/products')}
-          >
-            Invest Now
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -120,14 +109,6 @@ const Navbar: React.FC = () => {
               {item.label}
             </button>
           ))}
-          <Button
-            variant="hero"
-            size="sm"
-            className="w-full"
-            onClick={() => handleNavClick('/products')}
-          >
-            Invest Now
-          </Button>
         </div>
       )}
     </nav>
