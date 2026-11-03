@@ -6,7 +6,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import HomePage from './components/pages/HomePage';
 import AboutPage from './components/pages/AboutPage';
-import ProductsPage from './components/pages/ProductsPage';
 import { InvestmentEnquiryPage } from './components/pages/InvestmentEnquiryPage';
 import LoginPage from './components/pages/LoginPage';
 import { UserContextProvider } from './contexts/UserContext';
@@ -18,10 +17,8 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <HomePage /> },
       { path: 'about', element: <AboutPage /> },
-      { path: 'products', element: <ProductsPage /> },
       { path: 'invest', element: <InvestmentEnquiryPage /> },
       { path: 'contact', element: <InvestmentEnquiryPage /> },
-      { path: 'onboarding', element: <InvestmentEnquiryPage /> },
       { path: 'login', element: <LoginPage /> },
     ],
   },

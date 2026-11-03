@@ -26,7 +26,6 @@ const Navbar: React.FC = () => {
   const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
-    { label: 'Products', path: '/products' },
     { label: 'Invest', path: '/invest', highlight: true },
   ];
 
@@ -47,10 +46,10 @@ const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-navy/95 backdrop-blur-md shadow-premium'
-          : 'bg-gradient-to-b from-navy/50 to-transparent'
+          : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto flex h-20 items-center justify-between w-full">
+      <div className="max-w-7xl mx-auto flex h-20 items-center justify-between w-full px-4">
         {/* Logo */}
         <button
           onClick={() => handleNavClick('/')}
@@ -64,14 +63,14 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Desktop Menu - Right Side */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
             <button
               key={item.path}
               onClick={() => handleNavClick(item.path)}
               className={`transition-colors font-dm-sans font-medium text-sm ${
                 item.highlight
-                  ? 'bg-gradient-to-r from-gold to-yellow-300 text-navy px-4 py-2 rounded-lg font-bold hover:from-gold/90 hover:to-yellow-300/90'
+                  ? 'bg-gradient-to-r from-gold to-yellow-300 text-navy px-6 py-2 rounded-lg font-bold hover:from-gold/90 hover:to-yellow-300/90'
                   : isActive(item.path)
                   ? 'text-gold'
                   : 'text-cream hover:text-gold'
