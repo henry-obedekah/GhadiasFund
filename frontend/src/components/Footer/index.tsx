@@ -82,14 +82,6 @@ export const SiteFooter = () => {
               </li>
               <li>
                 <a
-                  href="#products"
-                  className="text-cream/70 hover:text-gold transition-colors"
-                >
-                  Products
-                </a>
-              </li>
-              <li>
-                <a
                   href="#sectors"
                   className="text-cream/70 hover:text-gold transition-colors"
                 >
@@ -129,30 +121,6 @@ export const SiteFooter = () => {
                   Terms & Conditions
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-cream/70 hover:text-gold transition-colors"
-                >
-                  Disclaimer
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-cream/70 hover:text-gold transition-colors"
-                >
-                  Risk Disclosure
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-cream/70 hover:text-gold transition-colors"
-                >
-                  Anti-Money Laundering
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -173,7 +141,7 @@ export const SiteFooter = () => {
               <div className="flex gap-3 items-center">
                 <Phone size={20} className="text-gold flex-shrink-0" />
                 <a
-                  href="tel:+233245123456"
+                  href="tel:+233245123456 TODO"
                   className="text-cream/70 hover:text-gold transition-colors"
                 >
                   +233 (0) 245 123 456
@@ -194,7 +162,7 @@ export const SiteFooter = () => {
                   href="#"
                   className="text-cream/70 hover:text-gold transition-colors"
                 >
-                  www.ghadiasfund.com
+                  www.ghadiasfund.site
                 </a>
               </div>
             </div>
@@ -203,23 +171,6 @@ export const SiteFooter = () => {
 
         {/* Divider */}
         <div className="border-t border-gold/20 pt-8 mb-8" />
-
-        {/* Legal Disclaimer */}
-        <div className="bg-navy/50 border border-gold/20 rounded-lg p-6 mb-8">
-          <h4 className="font-playfair-display font-bold text-cream mb-3">
-            Legal Disclaimer
-          </h4>
-          <p className="text-xs text-cream/60 leading-relaxed">
-            GHADIAS Investment Fund Limited is a registered investment vehicle.
-            This website and its contents do not constitute an offer to sell or
-            the solicitation of an offer to buy any securities or financial
-            instruments in any jurisdiction. All investments involve risk,
-            including potential loss of principal. Past performance does not
-            guarantee future results. Please review our full prospectus and risk
-            disclosure documents before investing. Reg: CS023900226, TIN:
-            C0066826144.
-          </p>
-        </div>
       </div>
 
       {/* Bottom Bar */}
