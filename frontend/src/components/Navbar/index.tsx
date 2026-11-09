@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import logo from '../../assets/images/GhadiasFund.png';
 
 type NavItem = {
   label: string;
@@ -30,7 +31,11 @@ const Navbar: React.FC = () => {
   ];
 
   const handleNavClick = (path: string) => {
-    navigate(path);
+    if (path === '/' && location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(path);
+    }
     setMobileMenuOpen(false);
   };
 
@@ -56,9 +61,9 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-3 flex-shrink-0 group"
         >
           <img
-            src="/src/assets/images/GhadiasFund.png"
+            src={logo}
             alt="GHADIAS Fund"
-            className="w-28 h-28 rounded-lg object-contain group-hover:scale-110 transition-transform"
+            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 rounded-lg object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg"
           />
         </button>
 
@@ -72,8 +77,8 @@ const Navbar: React.FC = () => {
                 item.highlight
                   ? 'bg-gradient-to-r from-gold to-yellow-300 text-navy px-6 py-2 rounded-lg font-bold hover:from-gold/90 hover:to-yellow-300/90'
                   : isActive(item.path)
-                  ? 'text-gold'
-                  : 'text-cream hover:text-gold'
+                    ? 'text-gold'
+                    : 'text-cream hover:text-gold'
               }`}
             >
               {item.label}
@@ -101,8 +106,8 @@ const Navbar: React.FC = () => {
                 item.highlight
                   ? 'bg-gradient-to-r from-gold to-yellow-300 text-navy font-bold'
                   : isActive(item.path)
-                  ? 'text-gold bg-gold/10'
-                  : 'text-cream hover:text-gold hover:bg-gold/10'
+                    ? 'text-gold bg-gold/10'
+                    : 'text-cream hover:text-gold hover:bg-gold/10'
               }`}
             >
               {item.label}

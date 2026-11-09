@@ -1,13 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  ArrowRight,
-  TrendingUp,
-  Shield,
-  Users,
-  Leaf,
-  Star,
-} from 'lucide-react';
+import { ArrowRight, TrendingUp, Shield, Users, Leaf } from 'lucide-react';
 import { Button } from '../ui/button';
 import ghanaImage from '../../assets/images/Ghana.jpeg';
 
@@ -77,9 +70,9 @@ const HomePage = () => {
     <div className="w-full">
       {/* Hero & Key Figures Combined Section */}
       <section
-        className="relative py-20 bg-gradient-to-r from-navy via-deep-green to-navy text-cream px-4 flex flex-col justify-center"
+        className="relative py-20 bg-gradient-to-r from-navy/40 via-deep-green/40 to-navy/40 text-cream px-4 flex flex-col justify-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${ghanaImage})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${ghanaImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -214,10 +207,10 @@ const HomePage = () => {
             Our Investment Products
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {/* Impact Fund */}
+            {/* Heritage Growth Fund */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 flex flex-col">
-              <div className="bg-gradient-to-r from-gold to-yellow-300 p-6 text-navy">
-                <h3 className="text-2xl font-bold">Impact Fund</h3>
+              <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 p-6 text-white">
+                <h3 className="text-2xl font-bold">Heritage Growth Fund</h3>
                 <p className="text-sm opacity-90">Direct investments</p>
               </div>
               <div className="p-6 flex-1 flex flex-col">
@@ -240,10 +233,10 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Growth Fund */}
+            {/* Evergreen Growth Fund */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 flex flex-col">
               <div className="bg-gradient-to-r from-blue-400 to-blue-500 p-6 text-white">
-                <h3 className="text-2xl font-bold">Growth Fund</h3>
+                <h3 className="text-2xl font-bold">Evergreen Growth Fund</h3>
                 <p className="text-sm opacity-90">Flexible savings</p>
               </div>
               <div className="p-6 flex-1 flex flex-col">
@@ -266,10 +259,10 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Fixed Income */}
+            {/* Anchor Wealth Fund */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-gold/20 flex flex-col">
               <div className="bg-gradient-to-r from-green-400 to-green-500 p-6 text-white">
-                <h3 className="text-2xl font-bold">Fixed Income</h3>
+                <h3 className="text-2xl font-bold">Anchor Wealth Fund</h3>
                 <p className="text-sm opacity-90">Guaranteed income</p>
               </div>
               <div className="p-6 flex-1 flex flex-col">
@@ -291,43 +284,6 @@ const HomePage = () => {
                 </Button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* First 100 Announcement */}
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-gold/30 text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Star className="w-8 h-8 text-gold" />
-              <h2 className="text-3xl font-bold text-gold">Join the First 100 Pioneer Investors!</h2>
-            </div>
-            <p className="text-lg mb-6 text-cream/90 max-w-3xl mx-auto">
-              Ghadias is officially registered in Ghana and we're now accepting applications for our first 100 pioneer investors.
-              Be part of the journey from the beginning with special founding member benefits.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="text-3xl font-bold text-gold mb-2">100</div>
-                <p className="text-cream/80 text-sm">Pioneer Slots Available</p>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="text-3xl font-bold text-gold mb-2">$1,000</div>
-                <p className="text-cream/80 text-sm">Starting Investment</p>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4">
-                <div className="text-3xl font-bold text-gold mb-2">8-15%</div>
-                <p className="text-cream/80 text-sm">Expected Annual Returns</p>
-              </div>
-            </div>
-            <Button
-              variant="hero"
-              className="px-10 py-3 text-lg"
-              onClick={() => navigate('/invest')}
-            >
-              Apply Now <ArrowRight className="ml-2" size={20} />
-            </Button>
           </div>
         </div>
       </section>

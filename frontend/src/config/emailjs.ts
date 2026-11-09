@@ -2,7 +2,7 @@
 // Remplacez ces valeurs par vos propres clés EmailJS obtenues depuis https://www.emailjs.com/
 
 export const emailjsConfig = {
-  SERVICE_ID: 'service_r80uwbh', // Service ID depuis votre dashboard EmailJS
+  SERVICE_ID: 'service_hjgrlkv', // Service ID depuis votre dashboard EmailJS
   TEMPLATE_ID: 'template_hdonpcx', // Template ID pour le formulaire de contact
   TEMPLATE_ID_ONBOARDING: 'template_cro50b2', // Template ID pour le formulaire d'onboarding
   PUBLIC_KEY: '2E_UaYkTsnwlg-hHe', // Public Key depuis votre compte EmailJS

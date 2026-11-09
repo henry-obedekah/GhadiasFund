@@ -7,8 +7,8 @@ import App from './components/App';
 import HomePage from './components/pages/HomePage';
 import AboutPage from './components/pages/AboutPage';
 import { InvestmentEnquiryPage } from './components/pages/InvestmentEnquiryPage';
-import LoginPage from './components/pages/LoginPage';
-import { UserContextProvider } from './contexts/UserContext';
+import PrivacyPolicyPage from './components/pages/PrivacyPolicyPage';
+import TermsPage from './components/pages/TermsPage';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,8 @@ const router = createBrowserRouter([
       { path: 'about', element: <AboutPage /> },
       { path: 'invest', element: <InvestmentEnquiryPage /> },
       { path: 'contact', element: <InvestmentEnquiryPage /> },
-      { path: 'login', element: <LoginPage /> },
+      { path: 'privacy', element: <PrivacyPolicyPage /> },
+      { path: 'terms', element: <TermsPage /> },
     ],
   },
 ]);
@@ -27,9 +28,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
-      <UserContextProvider>
-        <RouterProvider router={router} />
-      </UserContextProvider>
+      <RouterProvider router={router} />
     </div>
   </React.StrictMode>,
 );

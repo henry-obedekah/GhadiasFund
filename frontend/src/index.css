@@ -14,17 +14,17 @@
   --font-playfair-display: "Playfair Display", ui-serif, Georgia, serif;
   
   /* Also add your custom colors here so 'from-gold' etc. work correctly */
-  --color-deep-green: rgb(21 38 28);
+  --color-deep-green: rgb(40 60 45);
   --color-gold: rgb(201 156 76);
-  --color-navy: rgb(26 39 68);
+  --color-navy: rgb(50 70 100);
   --color-cream: rgb(247 244 239);
 }
 
 :root {
   /* Design Tokens - GHADIAS Investment */
-  --color-deep-green: 21 38 28; /* #1a3a2a */
+  --color-deep-green: 40 60 45; /* #283c2d - plus clair */
   --color-gold: 201 156 76; /* #c9a84c */
-  --color-navy: 26 39 68; /* #1a2744 */
+  --color-navy: 50 70 100; /* #324664 - plus clair */
   --color-cream: 247 244 239; /* #f7f4ef */
 
   /* Legacy tokens for compatibility */
