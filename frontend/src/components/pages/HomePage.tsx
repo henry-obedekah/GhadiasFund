@@ -76,15 +76,17 @@ const HomePage = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
         }}
       >
         {/* Hero Content */}
         <div className="max-w-6xl mx-auto text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="text-2xl md:text-4xl font-bold mb-4 text-deep-green leading-tight">
+            GHADIAS INVESTMENTS FUND LIMITED (GH)
+          </h1>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             Bridging the Gap Between Diaspora Capital & Ghana's Infrastructure
             Needs
-          </h1>
+          </h2>
           <p className="text-lg md:text-xl mb-8 text-cream/90 max-w-4xl mx-auto leading-relaxed">
             Connect your wealth to Ghana's future. Invest in high-impact
             projects with 8-15% annual returns.
@@ -204,7 +206,7 @@ const HomePage = () => {
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8 text-cream">
-            Our Investment Products
+            Our Investments Products
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             {/* Heritage Growth Fund */}
@@ -245,7 +247,7 @@ const HomePage = () => {
                   investment funds.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-cream/70 flex-1">
-                  <li>✓ Investment flexibility</li>
+                  <li>✓ Investments flexibility</li>
                   <li>✓ Professional management</li>
                   <li>✓ Diversification</li>
                 </ul>

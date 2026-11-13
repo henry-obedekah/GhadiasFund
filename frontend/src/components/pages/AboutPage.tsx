@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/button';
+import ecosystemImage from '../../assets/images/Ghadias_Ecosystem.jpeg';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -55,6 +56,17 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ecosystem Image */}
+      <section className="py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <img
+            src={ecosystemImage}
+            alt="GHADIAS Ecosystem"
+            className="w-full rounded-2xl shadow-lg"
+          />
         </div>
       </section>
 
@@ -119,7 +131,7 @@ const AboutPage = () => {
             Ready to Join Our Community?
           </h2>
           <p className="text-lg mb-8 text-cream/90">
-            Contact our team to learn more about investment opportunities
+            Contact our team to learn more about investments opportunities
           </p>
           <Button variant="hero" className="px-10 py-3 text-lg">
             Schedule an Appointment

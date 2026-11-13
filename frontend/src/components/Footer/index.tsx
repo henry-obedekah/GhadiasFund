@@ -1,12 +1,4 @@
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Linkedin,
-  Twitter,
-  Globe,
-} from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import ghadiasLogo from '../../assets/images/GhadiasFund.png';
 
 export const SiteFooter = () => {
@@ -23,39 +15,19 @@ export const SiteFooter = () => {
               <img
                 src={ghadiasLogo}
                 alt="GHADIAS Fund"
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 rounded-lg object-contain"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 rounded-lg object-contain"
               />
               <div>
                 <div className="text-lg sm:text-xl md:text-2xl font-playfair-display font-bold">
                   GHADIAS
                 </div>
-                <div className="text-xs sm:text-sm text-gold">Investment Fund</div>
+                <div className="text-xs sm:text-sm text-gold">Investments Fund</div>
               </div>
             </div>
             <p className="text-cream/70 text-sm leading-relaxed mb-4">
               Bridging diaspora capital with Ghana's infrastructure and economic{' '}
               growth.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="text-gold hover:text-cream transition-colors"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gold hover:text-cream transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gold hover:text-cream transition-colors"
-              >
-                <Twitter size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Navigation & Legal Combined */}
@@ -146,7 +118,7 @@ export const SiteFooter = () => {
                     href="tel:+31624282892"
                     className="block hover:text-gold transition-colors"
                   >
-                    Europe: +31 62 428 2892
+                    Europe: +31 613 603 026
                   </a>
                   <a
                     href="tel:+16517570003"
@@ -205,11 +177,11 @@ export const SiteFooter = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-cream/60">
             <p>
-              &copy; {currentYear} GHADIAS Investment Fund Limited. All rights{' '}
+              &copy; {currentYear} GHADIAS Investments Fund Limited. All rights{' '}
               reserved.
             </p>
             <p>
-              Professional investment fund connecting diaspora to Ghana's{' '}
+              Professional investments fund connecting diaspora to Ghana's{' '}
               future.
             </p>
           </div>

@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-navy via-deep-green to-navy font-dm-sans">
       <Navbar />
-      <main className="flex-1 pt-20">
+      <main className="flex-1">
         <Outlet />
       </main>
       <SiteFooter />

@@ -67,7 +67,7 @@ export function InvestmentEnquiryPage() {
         amount: standardForm.amount,
         message: standardForm.message,
         to_name: 'GHADIAS Team',
-        enquiry_type: 'Standard Investment Enquiry',
+        enquiry_type: 'Standard Investments Enquiry',
       };
 
       await emailjs.send(
@@ -155,13 +155,13 @@ export function InvestmentEnquiryPage() {
                   Retail Investor
                 </h3>
                 <p className="text-cream/70 text-sm mb-6">
-                  Regular investment enquiry with flexible options and
+                  Regular investments enquiry with flexible options and
                   professional guidance.
                 </p>
                 <ul className="text-left text-cream/60 text-sm space-y-2 mb-6 max-w-md mx-auto">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 size={16} className="text-gold" />
-                    Flexible investment amounts
+                    Flexible investments amounts
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 size={16} className="text-gold" />
@@ -436,7 +436,7 @@ export function InvestmentEnquiryPage() {
                 </label>
               </div>
               <Button type="submit" variant="hero" className="w-full">
-                Submit Investment Enquiry
+                Submit Investments Enquiry
               </Button>
             </form>
           </div>

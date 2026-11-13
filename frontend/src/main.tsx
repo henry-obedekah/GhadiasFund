@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div className="min-h-screen bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
+    <div className="min-h-screen bg-gradient-to-br from-navy via-deep-green to-navy text-[hsl(var(--foreground))]">
       <RouterProvider router={router} />
     </div>
   </React.StrictMode>,

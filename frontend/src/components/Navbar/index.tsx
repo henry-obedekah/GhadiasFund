@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
           <img
             src={logo}
             alt="GHADIAS Fund"
-            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-40 xl:h-40 rounded-lg object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg"
+            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 xl:w-44 xl:h-44 rounded-lg object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg"
           />
         </button>
 
